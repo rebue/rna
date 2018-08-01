@@ -297,6 +297,37 @@
       </if>
     </where>
   </select>
+    <select id="selectVerifyList" parameterType="rebue.rna.to.RnaVerifyTo" resultMap="BaseResultMap">
+    <!--
+		分页查询实名认证用户信息，因为传入的参数和返回的参数不一样，所以创建该查询
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from RNA_VERIFY
+    <where>
+
+      <if test="userId != null">
+        and USER_ID = #{userId,jdbcType=BIGINT}
+      </if>
+      <if test="realName != null and realName != ''">
+        and REAL_NAME = #{realName,jdbcType=VARCHAR}
+      </if>
+      <if test="idCard != null and idCard != ''">
+        and ID_CARD = #{idCard,jdbcType=VARCHAR}
+      </if>
+      <if test="applyState != null">
+        and APPLY_STATE = #{applyState,jdbcType=TINYINT}
+      </if>
+      <if test="startApplyTime != null">
+        and APPLY_TIME  &gt;= #{startApplyTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="endApplyTime != null">
+        and APPLY_TIME &lt;= #{endApplyTime,jdbcType=TIMESTAMP}
+      </if>
+    </where>
+    	ORDER BY APPLY_TIME DESC
+  </select>
+  
   <select id="existByPrimaryKey" parameterType="java.lang.Long" resultType="boolean">
     <!--
       WARNING - @mbg.generated
@@ -359,5 +390,14 @@
         and PIC_FOUR = #{picFour,jdbcType=VARCHAR}
       </if>
     </where>
+  </select>
+   <select id="getByUserId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--
+		根据用户id获取用户实名认证状态
+    -->
+    select 
+     APPLY_STATE
+    from RNA_VERIFY
+    where USER_ID = #{userId,jdbcType=BIGINT}
   </select>
 </mapper>
