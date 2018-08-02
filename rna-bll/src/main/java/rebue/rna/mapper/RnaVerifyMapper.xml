@@ -396,7 +396,7 @@
 		根据用户id获取用户实名认证状态
     -->
     select 
-     APPLY_STATE
+     APPLY_STATE , REJECT_REASON
     from RNA_VERIFY
     where USER_ID = #{userId,jdbcType=BIGINT}
   </select>

@@ -100,14 +100,14 @@ public class RnaVerifyCtrl {
 	}
 	
 	/**
-	 * 根据用户id获取用户实名认证状态  
-	 * @return 0：没有申请过  1：以通过 2：待审核 3以拒绝
+	 * 根据用户id获取用户实名认证申请信息
+	 * @return 
 	 */
 	@GetMapping("/rna/getbyuserid")
-	int getByUserId(@RequestParam("userId") java.lang.String userId) {
+	RnaVerifyMo getByUserId(@RequestParam("userId") java.lang.String userId) {
 		_log.info(" 请求的userId: {}", userId);
-		int  result =svc.getByUserId(userId);
-		_log.info("返回的用户实名认证状态为 : {}", userId);
+		RnaVerifyMo  result =svc.getByUserId(userId);
+		_log.info("返回的用户实名 : {}", result);
 		return result;
 	}
 	

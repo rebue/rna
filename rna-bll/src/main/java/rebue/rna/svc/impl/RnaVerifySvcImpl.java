@@ -33,28 +33,28 @@ implements RnaVerifySvc  {
 	 * 根据用户id获取用户实名认证状态
 	 */
 	@Override
-	public int getByUserId(java.lang.String userId) {
+	public RnaVerifyMo getByUserId(java.lang.String userId) {
 		List<RnaVerifyMo> user =_mapper.getByUserId(userId);
 		if(user==null) {
-			return 0;
+			return null;
 		}else {
 			for (RnaVerifyMo rnaVerifyMo : user) {
 				if(rnaVerifyMo.getApplyState()==1) {
-					return 1;
+					return rnaVerifyMo;
 				}
 			}
 			for (RnaVerifyMo rnaVerifyMo : user) {
 				if(rnaVerifyMo.getApplyState()==2) {
-					return 2;
+					return rnaVerifyMo;
 				}
 			}
 			for (RnaVerifyMo rnaVerifyMo : user) {
 				if(rnaVerifyMo.getApplyState()==3) {
-					return 3;
+					return rnaVerifyMo;
 				}
 			}
 		}
-		return 0;
+		return null;
 	}
 
 }

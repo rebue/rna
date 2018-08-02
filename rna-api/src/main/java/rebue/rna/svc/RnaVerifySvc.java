@@ -22,6 +22,6 @@ public interface RnaVerifySvc extends MybatisBaseSvc<RnaVerifyMo, java.lang.Long
 	 * @param userId
 	 * @return
 	 */
-	int  getByUserId(String userId);
+	RnaVerifyMo  getByUserId(String userId);
 
 }
