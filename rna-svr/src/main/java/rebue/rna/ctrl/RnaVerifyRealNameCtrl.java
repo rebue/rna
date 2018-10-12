@@ -25,7 +25,7 @@ public class RnaVerifyRealNameCtrl {
 	@PostMapping("/verifyRealName/apply")
 	VerifyRealNameApplyRo verifyRealNameApply(RnaVerifyMo mo) {
 		// 设置状态默认值
-		mo.setApplyState((byte) 2);
+		mo.setApplyState((byte) 1);
 		//设置当前时间为申请时间
 		mo.setApplyTime(new Date());
 		_log.info("实名认证申请的参数为：{}" + mo);

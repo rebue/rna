@@ -111,5 +111,10 @@ public class RnaVerifyCtrl {
 		return result;
 	}
 	
-
+	// 根据条件查询用户是否已申请实名认证
+	@GetMapping("/rna/rnaverify/exist")
+	Boolean exist(RnaVerifyMo mo) {
+		_log.info("根据条件查询用户是否已实名认证的参数为：{}", mo);
+		return svc.existSelective(mo);
+	}
 }
