@@ -39,15 +39,16 @@ implements RnaVerifySvc  {
 			return null;
 		}else {
 			for (RnaVerifyMo rnaVerifyMo : user) {
-				if(rnaVerifyMo.getApplyState()==1) {
-					return rnaVerifyMo;
-				}
-			}
-			for (RnaVerifyMo rnaVerifyMo : user) {
 				if(rnaVerifyMo.getApplyState()==2) {
 					return rnaVerifyMo;
 				}
 			}
+			for (RnaVerifyMo rnaVerifyMo : user) {
+				if(rnaVerifyMo.getApplyState()==1) {
+					return rnaVerifyMo;
+				}
+			}
+
 			for (RnaVerifyMo rnaVerifyMo : user) {
 				if(rnaVerifyMo.getApplyState()==3) {
 					return rnaVerifyMo;
