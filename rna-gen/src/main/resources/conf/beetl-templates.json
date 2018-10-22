@@ -3,18 +3,21 @@
 		"templateName": "svc.btl",
 		"targetDir": "../rna-api/src/main/java/${modulePath}/svc/",
 		"targetFile": "${entityName}Svc.java",
+		"isGenTargetOnMiddleTable": false,
 		"backup": false
 	},
 	{
 		"templateName": "svc-impl.btl",
 		"targetDir": "../rna-bll/src/main/java/${modulePath}/svc/impl/",
 		"targetFile": "${entityName}SvcImpl.java",
+		"isGenTargetOnMiddleTable": false,
 		"backup": false
 	},
 	{
 		"templateName": "ctrl.btl",
 		"targetDir": "../rna-svr/src/main/java/${modulePath}/ctrl/",
 		"targetFile": "${entityName}Ctrl.java",
+		"isGenTargetOnMiddleTable": false,
 		"backup": false
 	}
 ]

@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2018/6/8 14:24:38                            */
+/* Created on:     2018/10/22 10:16:20                          */
 /*==============================================================*/
 
 
@@ -16,6 +16,7 @@ create table RNA_REALNAME
    ID                   bigint not null comment 'ID',
    REAL_NAME            varchar(100) not null comment '用户真名',
    ID_CARD              varchar(18) not null comment '身份证号',
+   IS_CORRECT           bool not null comment '是否正确',
    primary key (ID),
    key AK_ID_CARD (ID_CARD)
 );
@@ -31,7 +32,7 @@ create table RNA_VERIFY
    USER_ID              bigint not null comment '用户ID',
    REAL_NAME            varchar(100) not null comment '用户真名',
    ID_CARD              varchar(18) not null comment '身份证号',
-   APPLY_STATE          tinyint comment '申请状态：-1 取消申请，1 待审核 ，2 审核中，3 已拒绝 ，4 已通过',
+   APPLY_STATE          tinyint comment '申请状态：1 待审核 ，2 审核中，3 已拒绝',
    APPLY_TIME           datetime comment '申请时间',
    APPLY_TYPE           tinyint comment '申请类型',
    VERIFYER_ID          bigint comment '审核人ID',
@@ -45,4 +46,3 @@ create table RNA_VERIFY
 );
 
 alter table RNA_VERIFY comment '用户实名认证审核';
-
